@@ -1,0 +1,23 @@
+{% extends 'main/base_pc.html' %}
+{% load static %}
+
+{%block title%}
+{{post.title}}
+{%endblock%}
+
+{%block content%}
+<div class="justify-content-center">
+    <div class="row  text-center">
+      <div class="col-12 col-sm">
+        <h1>    {{ post.title }}</h1>
+                    <p>{{ post.author }} | {{ post.created_on}}</p>
+                 <p>{{post.content}}</p> 
+                 {% for img in post.image_set.all %}
+                 <img src="{% static img.image.path%}" class="d-block w-100" alt="img1">
+                 <br>
+                 {%endfor%}
+
+        </div>
+    </div>
+  </div>
+{%endblock%}
